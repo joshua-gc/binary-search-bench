@@ -1,6 +1,6 @@
 # binary-search-bench
 
-A small Rust project for comparing multiple ways to search sorted data, inspired by Denis Bazhenov's article **"Fast(er) binary search in Rust"**. The article benchmarks standard slice binary search against Eytzinger-layout variants, including branchless and software-prefetch versions. citeturn550675view0turn960337view0
+A small Rust project for comparing multiple ways to search sorted data, inspired by Denis Bazhenov's article **"Fast(er) binary search in Rust"**. The article benchmarks standard slice binary search against Eytzinger-layout variants, including branchless and software-prefetch versions.
 
 This project includes:
 
@@ -13,7 +13,7 @@ This project includes:
 
 ## Why Eytzinger?
 
-Bazhenov's post explains that normal binary search becomes increasingly memory-latency bound as the array grows beyond cache, while the Eytzinger layout makes access patterns more predictable. The article then improves that baseline by removing a branch and adding software prefetching. citeturn550675view0
+Bazhenov's post explains that normal binary search becomes increasingly memory-latency bound as the array grows beyond cache, while the Eytzinger layout makes access patterns more predictable. The article then improves that baseline by removing a branch and adding software prefetching.
 
 ## Project layout
 
@@ -50,8 +50,8 @@ Open the Criterion HTML report under `target/criterion/report/index.html`.
 
 ## Notes on the data set
 
-The article's sample code generates a sorted array with gaps so random lookups are present about half the time. This project uses the same idea for fairer benchmarking of hits and misses together. The article's benchmark repo uses this style of generator as well. citeturn127096view0turn134956view0
+The article's sample code generates a sorted array with gaps so random lookups are present about half the time. This project uses the same idea for fairer benchmarking of hits and misses together. The article's benchmark repo uses this style of generator as well.
 
 ## A small implementation detail
 
-For the prefetch variant, this project prefetches the target data address directly. The article motivates unconditional prefetching via `wrapping_offset()` and notes that prefetch is just a hint, so going past the logical end is acceptable as long as the pointer is not dereferenced. citeturn550675view0turn127096view0
+For the prefetch variant, this project prefetches the target data address directly. The article motivates unconditional prefetching via `wrapping_offset()` and notes that prefetch is just a hint, so going past the logical end is acceptable as long as the pointer is not dereferenced.
