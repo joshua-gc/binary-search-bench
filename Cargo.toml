@@ -1,0 +1,17 @@
+[package]
+name = "binary-search-bench"
+version = "0.1.0"
+edition = "2021"
+description = "Benchmark several Rust binary-search implementations, including Eytzinger variants from Bazhenov's article."
+license = "MIT"
+
+[dependencies]
+clap = { version = "4.5", features = ["derive"] }
+rand = { version = "0.8", features = ["small_rng"] }
+
+[dev-dependencies]
+criterion = { version = "0.5", features = ["html_reports"] }
+
+[[bench]]
+name = "compare"
+harness = false
